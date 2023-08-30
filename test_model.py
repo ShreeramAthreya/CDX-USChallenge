@@ -42,7 +42,7 @@ def testModel(model, device, test_dir, result_dir):
 
 def testing(DEVICE):
     GeneratorH = Generator().to(DEVICE)
-    state_dict = torch.load("genH.pth.tar", map_location=DEVICE)
+    state_dict = torch.load("bestGen.pth.tar", map_location=DEVICE)
     state_dict = remove_module_from_state_dict(state_dict["state_dict"])
     GeneratorH.load_state_dict(state_dict)
     test_dir = 'test'

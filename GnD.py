@@ -39,7 +39,7 @@ class Generator(nn.Module):
         nn.InstanceNorm2d(256),
         nn.ReLU(inplace=True))
         
-        self.res_blocks = nn.ModuleList([ResBlock(256) for _ in range(9)])
+        self.res_blocks = nn.ModuleList([ResBlock(256) for _ in range(15)])
 
         self.conv4 = nn.Sequential(
         nn.Conv2d(256, 128, kernel_size=3, stride=1, padding=1, padding_mode='reflect'),
@@ -74,6 +74,7 @@ class Generator(nn.Module):
         x = torch.tanh(self.conv6(x))
         
         return x
+
 
 # Discriminator
 class Discriminator(nn.Module):
